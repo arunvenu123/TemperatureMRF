@@ -15,10 +15,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*TextView date = findViewById(R.id.date);
+        TextView date = findViewById(R.id.date);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
         String currentDate = sdf.format(new Date());
-        date.setText(currentDate);*/
+        date.setText(currentDate);
 
 
     }
