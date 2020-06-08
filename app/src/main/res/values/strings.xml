@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Temperature MRF</string>
+    <array name="temp_list">
+        <item>88-90</item>
+        <item>90-91</item>
+        <item>91-92</item>
+    </array>
 </resources>
