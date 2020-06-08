@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "474657639352",
+    "firebase_url": "https://temperature-mrf.firebaseio.com",
+    "project_id": "temperature-mrf",
+    "storage_bucket": "temperature-mrf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474657639352:android:dc0e28e3544ae37fc1dd4d",
+        "android_client_info": {
+          "package_name": "com.example.temperaturemrf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474657639352-a2lo2gne11asvhvm478p9il46k8oinf8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.temperaturemrf",
+            "certificate_hash": "ce45bc5a1e6b60d4d3607a9bfb2f6c6108e67ce6"
+          }
+        },
+        {
+          "client_id": "474657639352-j4f06bjohjchj00auafkhlvmsfemegcq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiZPxIK2jzh_NeijM5Y-NkXxJcAEe3bZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474657639352-j4f06bjohjchj00auafkhlvmsfemegcq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
