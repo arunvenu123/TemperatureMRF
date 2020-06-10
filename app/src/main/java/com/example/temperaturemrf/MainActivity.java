@@ -1,12 +1,16 @@
 package com.example.temperaturemrf;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     Spinner outTemperature;
     DatabaseReference dbTemp;
     Button button;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    String currentDate = sdf.format(new Date());
 
 
     @Override
@@ -31,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         date = findViewById(R.id.date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String currentDate = sdf.format(new Date());
+
         date.setText(currentDate);
 
         empnum = findViewById(R.id.empno);
@@ -42,12 +47,37 @@ public class MainActivity extends AppCompatActivity {
         outTemperature = findViewById(R.id.outTemp);
         button = findViewById(R.id.button);
 
+        dbTemp = FirebaseDatabase.getInstance().getReference("Data");
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToDatabase();
+            }
+        });
+
+
+    }
+
+    private void addToDatabase() {
         String empnumberText = empnum.getText().toString().trim();
         String busTempText = busTemperataure.getSelectedItem().toString().trim();
         String recorderText = recorder.getText().toString().trim();
         String inTempText = inTemperature.getSelectedItem().toString().trim();
         String outTempText = outTemperature.getSelectedItem().toString().trim();
 
+        if (!TextUtils.isEmpty(empnumberText) && !TextUtils.isEmpty(busTempText) && !TextUtils.isEmpty(recorderText)) {
+            String id = dbTemp.push().getKey();
 
+            entry dataentry = new entry(currentDate, empnumberText, busTempText, recorderText, inTempText, outTempText);
+            dbTemp.child(id).setValue(dataentry);
+            Toast.makeText(this, "Saved", Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(this, "Enter all fields", Toast.LENGTH_LONG).show();
+        }
     }
+
 }
+
